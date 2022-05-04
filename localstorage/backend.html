@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <div>
+    <form action="">
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="text" id="url" placeholder="Enter Url">
+        <input type="text" id="logo" placeholder="Enter Logo">
+        <input type="text" id="role" placeholder="Enter Role">
+        <input type="submit" id="submit">
+    </form>
+    </div>
+    
+</body>
+</html>
+
+<script>
+
+    document.querySelector("form").addEventListener("submit",myfunction)
+
+    var arrdata = JSON.parse(localStorage.getItem("appdata")) || []
+
+    function myfunction(){
+
+    event.preventDefault()
+
+    var objdata = {
+    
+     name  : document.querySelector("#name").value,
+
+     imgurl  : document.querySelector("#url").value,
+
+     logo  : document.querySelector("#logo").value,
+
+     role  : document.querySelector("#role").value
+
+    }
+
+    arrdata.push(objdata)
+
+    console.log(arrdata)
+
+    localStorage.setItem("appdata",JSON.stringify(arrdata))
+
+}
+
+</script>

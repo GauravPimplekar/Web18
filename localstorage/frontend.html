@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body > div{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            
+            gap: 20px;
+        }
+        div > div{
+            height: auto;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            text-align: center;
+        }
+        div > img{
+            width: 100%;
+        }
+        h3 + img{
+            width: 60%;
+            
+        }
+        h3{
+            color: gray;
+            margin-top: -10px;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<script>
+    
+    var div = document.createElement("div")
+
+    var appdata = JSON.parse(localStorage.getItem("appdata"))
+
+    appdata.forEach(function(el){
+
+        var div1 = document.createElement("div")
+        
+        var img = document.createElement("img")
+        img.setAttribute("src",el.imgurl)
+
+        var name = document.createElement("h2")
+        name.innerText = el.name
+
+        var role = document.createElement("h3")
+        role.innerText = el.role
+
+        var logo = document.createElement("img")
+        logo.setAttribute("src",el.logo)
+
+        div1.append(img,name,role,logo)
+
+        div.append(div1)
+
+        document.querySelector("body").append(div)
+    })
+
+    console.log(document.querySelector("body"))
+</script>
