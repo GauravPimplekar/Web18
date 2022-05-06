@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <form action="" id="form">
+        <input type="email" id="email" placeholder="Enter your email">
+        <input type="password" id="password" placeholder="Enter your password">
+        <input type="submit" value="log_in">
+    </form>
+</body>
+</html>
+
+<script>
+    var data = JSON.parse(localStorage.getItem("data"))
+
+    document.querySelector("form").addEventListener("submit",myfunction)
+
+    function myfunction(){
+        event.preventDefault()
+        var count = 0
+
+        data.forEach(function(el){
+            if(el.email == document.querySelector("#email").value && el.password == document.querySelector("#password").value){
+                count++
+            }
+            
+        })
+        if(count > 0){
+            alert("Login Successfuly")
+        }
+        else{
+            alert("Wrong Data")
+        }
+    }
+</script>
