@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var h1 = document.createElement("h1")
+    var count = JSON.parse(localStorage.getItem("counter")) || 0
+    h1.innerText = count
+
+    var like = document.createElement("button")
+    like.innerText = "like"
+    like.addEventListener("click",likefun)
+
+    var dislike = document.createElement("button")
+    dislike.innerText = "dislike"
+    dislike.addEventListener("click",dislikefun)
+    
+    document.querySelector("body").append(h1,like,dislike)
+
+    function likefun(){
+        count++
+        h1.innerText = count
+        localStorage.setItem("counter",JSON.stringify(count))
+    }
+    function dislikefun(){
+        count--
+        h1.innerText = count
+        localStorage.setItem("counter",JSON.stringify(count))
+    }
+</script>
